@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f6f4ef">
+<title>东京 · 镰仓 · 伊豆 · 横滨 7 日旅行手册（2026.9.28–10.4）</title>
+<style>
+  :root{
+    --bg:#f6f4ef;
+    --bg-soft:#efece4;
+    --card:#ffffff;
+    --card-border:#e7e2d6;
+    --ink:#1c1b18;
+    --ink-soft:#6b675e;
+    --ink-faint:#9a958a;
+    --line:#e5e0d4;
+    --accent:#e8503a;
+    --chip-bg:#f1eee6;
+    --shadow:0 1px 2px rgba(30,28,22,.05),0 6px 22px rgba(30,28,22,.06);
+    --mono:"SF Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Roboto Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+    /* day colors */
+    --d1:#e8503a; --d2:#f59b23; --d3:#d8a51b; --d4:#2f9d6c; --d5:#1f9bb0; --d6:#3a6ee8; --d7:#8a5ce8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141310; --bg-soft:#1c1a16; --card:#211e1a; --card-border:#312d25;
+      --ink:#ece7dd; --ink-soft:#a8a296; --ink-faint:#6f6a60; --line:#332f27;
+      --chip-bg:#2a261f; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 26px rgba(0,0,0,.45);
+      --d1:#ff7a5e; --d2:#ffb64d; --d3:#ecc24a; --d4:#4dc98f; --d5:#43c3d8; --d6:#6d94ff; --d7:#b18bff;
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    padding-bottom:56px;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+  /* ---------- top countdown card ---------- */
+  .hero{
+    background:linear-gradient(160deg,var(--d1) 0%,#c23a28 100%);
+    color:#fff; border-radius:0 0 22px 22px; padding:22px 18px 24px;
+    position:relative; overflow:hidden;
+  }
+  @media (prefers-color-scheme: dark){
+    .hero{background:linear-gradient(160deg,#a33a29 0%,#6e2719 100%)}
+  }
+  .hero .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;font-weight:600}
+  .hero .ev-title{font-size:22px;font-weight:700;margin:8px 0 2px;letter-spacing:.01em}
+  .hero .ev-sub{font-size:14px;opacity:.92}
+  .hero .tz{font-size:12px;opacity:.8;margin-top:4px}
+  .count{display:flex;gap:10px;margin:20px 0 18px}
+  .count .cell{
+    flex:1;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    border-radius:14px;padding:10px 4px;text-align:center;backdrop-filter:blur(4px);
+  }
+  .count .num{font-family:var(--mono);font-size:34px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .count .lbl{font-size:11px;opacity:.85;margin-top:6px;letter-spacing:.08em}
+  .hero a.mapsbtn{
+    display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;
+    border:1px solid rgba(255,255,255,.4);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;
+  }
+  .hero a.mapsbtn:hover{background:rgba(255,255,255,.16)}
+  .hero a.mapsbtn svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2}
+
+  /* ---------- section shells ---------- */
+  section{margin:26px 0}
+  .sec-h{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+  .sec-h .no{
+    font-family:var(--mono);font-size:13px;font-weight:700;color:var(--bg);
+    background:var(--ink);border-radius:7px;padding:2px 8px;letter-spacing:.04em;
+  }
+  .sec-h h2{font-size:19px;font-weight:700;margin:0;letter-spacing:.01em}
+
+  .card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:16px;
+    padding:16px;box-shadow:var(--shadow);
+  }
+
+  /* ---------- overview map ---------- */
+  .map-card{padding:8px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 14px;padding:12px 10px 4px}
+  .legend .li{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft)}
+  .legend .sw{width:22px;height:8px;border-radius:4px}
+  .legend .li b{color:var(--ink);font-weight:600}
+  .map-note{font-size:12px;color:var(--ink-faint);padding:6px 10px 12px}
+
+  /* ---------- confirmed list ---------- */
+  .confirm .item{padding:13px 0;border-bottom:1px solid var(--line)}
+  .confirm .item:last-child{border-bottom:none}
+  .confirm .it-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .confirm .it-name{font-weight:700;font-size:15.5px}
+  .confirm .it-tag{flex:none;font-size:11.5px;font-weight:600;color:var(--d4);
+    background:var(--chip-bg);border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .confirm .it-meta{font-size:13.5px;color:var(--ink-soft);margin-top:5px}
+  .confirm .it-meta .kv{display:inline-block;margin-right:14px}
+  .confirm .it-meta .kv b{color:var(--ink);font-weight:600}
+  .confirm a.here{
+    display:inline-block;margin-top:7px;font-size:13px;font-weight:600;
+    color:var(--d6);text-decoration:none;
+  }
+  .confirm a.here svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;vertical-align:-1px;margin-right:3px}
+  .secure-note{font-size:12px;color:var(--ink-faint);padding-top:11px}
+
+  /* ---------- daily schedule ---------- */
+  details.day{background:var(--card);border:1px solid var(--card-border);border-radius:16px;
+    margin:14px 0;box-shadow:var(--shadow);overflow:hidden}
+  details.day summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;
+    padding:14px 16px;user-select:none;
+  }
+  details.day summary::-webkit-details-marker{display:none}
+  details.day summary .dcolor{flex:none;width:46px;height:46px;border-radius:12px;color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+  details.day summary .dcolor .dn{font-family:var(--mono);font-weight:700;font-size:15px}
+  details.day summary .dcolor .dw{font-size:9.5px;opacity:.9}
+  .day-title{flex:1;min-width:0}
+  .day-title .t1{font-weight:700;font-size:15.5px}
+  .day-title .t2{font-size:12.5px;color:var(--ink-soft);margin-top:1px}
+  .day-caret{flex:none;color:var(--ink-faint);transition:transform .2s}
+  details[open] .day-caret{transform:rotate(90deg)}
+  .day-body{padding:4px 16px 16px}
+  .day-nav{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:4px 0 12px;
+  }
+  .day-nav .rt{font-size:12.5px;color:var(--ink-soft)}
+  .day-nav a{
+    display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;text-decoration:none;
+    color:#fff;background:var(--d6);border-radius:9px;padding:8px 13px;
+  }
+  .day-nav a svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2}
+  .seg{margin:14px 0 6px;display:flex;align-items:center;gap:8px}
+  .seg .tag{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:#fff;background:var(--d5);border-radius:6px;padding:2px 8px}
+  .seg .line{flex:1;height:1px;background:var(--line)}
+  .timeline{position:relative;padding-left:0}
+  .tl{position:relative;display:flex;gap:12px;padding:0 0 16px}
+  .tl .tm{flex:none;width:74px;text-align:right;font-family:var(--mono);font-size:13px;font-weight:600;
+    color:var(--ink);padding-top:1px;font-variant-numeric:tabular-nums}
+  .tl .tm small{display:block;font-size:10px;color:var(--ink-faint);font-weight:500;letter-spacing:.02em}
+  .tl .dot-col{flex:none;width:12px;position:relative}
+  .tl .dot{width:9px;height:9px;border-radius:50%;background:var(--ink-faint);margin-top:5px}
+  .tl .dot.major{background:var(--day-accent,#e8503a);width:11px;height:11px;margin-top:4px}
+  .tl .bar{position:absolute;left:5.5px;top:20px;bottom:-8px;width:1.5px;background:var(--line)}
+  .tl:last-child .bar{display:none}
+  .tl .bd{flex:1;min-width:0}
+  .tl .bd .what{font-size:14.5px}
+  .tl .bd .what b{font-weight:650}
+  .tl .bd .where{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+  .tl a.goto{display:inline-block;margin-top:4px;font-size:12.5px;font-weight:600;color:var(--d6);text-decoration:none}
+  .tl a.goto svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;vertical-align:-1px;margin-right:2px}
+  .tl .book{
+    display:inline-block;margin-top:5px;font-size:11px;font-weight:700;letter-spacing:.03em;
+    color:var(--d1);background:rgba(232,80,58,.1);border:1px solid rgba(232,80,58,.3);
+    border-radius:6px;padding:1px 7px;
+  }
+  .tl .scene{
+    display:inline-block;margin-top:5px;font-size:11.5px;font-weight:600;letter-spacing:.02em;
+    color:var(--d5);background:rgba(31,155,176,.1);border:1px solid rgba(31,155,176,.3);
+    border-radius:6px;padding:1px 7px;
+  }
+  .stay{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;color:var(--ink-soft)}
+  .stay b{color:var(--ink)}
+  .stay .bed{flex:none;display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--d4)}
+  .food{margin:12px 0 2px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13px;line-height:1.8;color:var(--ink-soft)}
+  .food b{color:var(--ink)}
+  .food .warn{color:var(--d1)}
+
+  /* ---------- todo list (plain, no checkbox) ---------- */
+  .todo .t-item{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .todo .t-item:last-child{border-bottom:none}
+  .todo .t-item .idx{flex:none;font-family:var(--mono);font-size:12px;color:var(--ink-faint);padding-top:2px;width:20px}
+  .todo .t-item .tt{font-size:14.5px}
+  .todo .t-item .tt small{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px}
+
+  /* ---------- tips ---------- */
+  .tips .tip{padding:12px 0;border-bottom:1px solid var(--line)}
+  .tips .tip:last-child{border-bottom:none}
+  .tips .tip h4{margin:0 0 3px;font-size:14.5px}
+  .tips .tip p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+
+  footer{max-width:720px;margin:34px auto 0;padding:0 16px;font-size:12px;color:var(--ink-faint);line-height:1.7}
+  footer .warn{color:var(--d1);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ============ 顶部「此刻关注」 ============ -->
+<div class="hero">
+  <div class="kicker">此刻关注 · 下一行程</div>
+  <div class="ev-title" id="evTitle">—</div>
+  <div class="ev-sub" id="evSub">—</div>
+  <div class="tz" id="evTz">—</div>
+  <div class="count" id="count">
+    <div class="cell"><div class="num" id="cdD">–</div><div class="lbl">天</div></div>
+    <div class="cell"><div class="num" id="cdH">–</div><div class="lbl">时</div></div>
+    <div class="cell"><div class="num" id="cdM">–</div><div class="lbl">分</div></div>
+    <div class="cell"><div class="num" id="cdS">–</div><div class="lbl">秒</div></div>
+  </div>
+  <a class="mapsbtn" id="evNav" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    打开导航前往
+  </a>
+</div>
+
+<div class="wrap">
+
+  <!-- ============ 2. 行程总览地图 ============ -->
+  <section>
+    <div class="sec-h"><span class="no">2</span><h2>行程总览地图</h2></div>
+    <div class="card map-card">
+
+      <!-- 主图：关东 · 伊豆 全域（每天行程点都标出） -->
+      <svg viewBox="0 0 680 520" role="img" aria-label="行程路线总览" style="width:100%;height:auto;display:block">
+        <defs>
+          <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="3" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+
+        <!-- 海岸线（手绘示意） -->
+        <path d="M180 70 C 300 60, 430 90, 520 120 C 570 138, 600 150, 615 170
+                 C 640 205, 640 250, 610 285 C 580 318, 520 330, 460 335
+                 C 400 340, 350 360, 300 385 C 250 410, 210 430, 190 465
+                 C 175 490, 160 505, 150 510"
+              fill="none" stroke="var(--ink-faint)" stroke-width="1.2" stroke-dasharray="2 5" opacity=".55" filter="url(#rough)"/>
+        <text x="640" y="140" font-size="11" fill="var(--ink-faint)" text-anchor="end" font-family="var(--sans)">太平洋</text>
+
+        <!-- 香港 → 成田 航班（虚线） -->
+        <path d="M58 455 L 535 115" fill="none" stroke="var(--d1)" stroke-width="2" stroke-dasharray="5 7" opacity=".45" filter="url(#rough)"/>
+
+        <!-- 按天分色路线 -->
+        <g filter="url(#rough)" fill="none" stroke-linecap="round">
+          <!-- D1 成田 → 东京 -->
+          <path d="M555 95 C 520 128, 468 160, 430 185" stroke="var(--d1)" stroke-width="4.5"/>
+          <!-- D2 东京 ↔ 迪士尼 -->
+          <path d="M430 185 C 460 210, 490 235, 505 250" stroke="var(--d2)" stroke-width="4.5"/>
+          <!-- D3 东京 → 伊豆高原 · 大室山 → 稻取（跟团一日游） -->
+          <path d="M430 185 C 360 250, 250 310, 190 335" stroke="var(--d3)" stroke-width="4.5"/>
+          <path d="M190 335 C 184 355, 179 376, 175 395" stroke="var(--d3)" stroke-width="4.5"/>
+          <!-- D4 稻取 → 下田 -->
+          <path d="M175 395 C 168 430, 160 458, 150 480" stroke="var(--d4)" stroke-width="4.5"/>
+          <!-- D5 下田 → 大船 → 腰越 → 江之岛 -->
+          <path d="M150 480 C 182 428, 218 368, 248 318" stroke="var(--d5)" stroke-width="4.5"/>
+          <path d="M248 318 C 256 330, 262 342, 268 352" stroke="var(--d5)" stroke-width="4.5"/>
+          <path d="M268 352 C 258 356, 250 359, 240 362" stroke="var(--d5)" stroke-width="4.5"/>
+          <!-- D6 腰越 → 镰仓 → 横滨 → 新宿 -->
+          <path d="M268 352 C 288 336, 304 318, 322 300" stroke="var(--d6)" stroke-width="4.5"/>
+          <path d="M322 300 C 336 290, 348 280, 360 270" stroke="var(--d6)" stroke-width="4.5"/>
+          <path d="M360 270 C 375 250, 388 234, 398 218" stroke="var(--d6)" stroke-width="4.5"/>
+          <!-- D7 新宿 → 原宿·表参道 → 银座 → 成田 -->
+          <path d="M398 218 C 403 214, 408 211, 414 208" stroke="var(--d7)" stroke-width="4.5"/>
+          <path d="M414 208 C 465 175, 515 135, 555 95" stroke="var(--d7)" stroke-width="4.5"/>
+        </g>
+
+        <!-- 日标签 -->
+        <g font-family="var(--mono)" font-size="10.5" font-weight="700">
+          <text x="500" y="122" fill="var(--d1)">D1</text>
+          <text x="472" y="232" fill="var(--d2)">D2</text>
+          <text x="305" y="296" fill="var(--d3)">D3</text>
+          <text x="138" y="432" fill="var(--d4)">D4</text>
+          <text x="196" y="392" fill="var(--d5)">D5</text>
+          <text x="315" y="290" fill="var(--d6)">D6</text>
+          <text x="485" y="158" fill="var(--d7)">D7</text>
+        </g>
+
+        <!-- 主要节点（过夜城市，可点击导航） -->
+        <g>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.7720,140.3929&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="555" cy="95" r="7" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+            <text x="555" y="76" text-anchor="middle" font-size="11.5" fill="var(--ink)" font-family="var(--sans)">成田机场</text>
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.7075,139.7455&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="430" cy="185" r="9" fill="var(--d1)"/>
+            <text x="430" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">东京</text>
+            <text x="430" y="210" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">住 D1·D2</text>
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.6275,139.8888&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="505" cy="250" r="6" fill="var(--d2)"/>
+            <text x="512" y="272" font-size="10.5" fill="var(--ink-soft)" font-family="var(--sans)">迪士尼海洋</text>
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=34.7760,139.1000&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="175" cy="395" r="9" fill="var(--d3)"/>
+            <text x="175" y="415" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">稻取</text>
+            <text x="175" y="428" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">住 D3</text>
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=34.6750,138.9430&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="150" cy="480" r="9" fill="var(--d4)"/>
+            <text x="150" y="505" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">下田</text>
+            <text x="150" y="518" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">住 D4</text>
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.3044,139.4980&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="268" cy="352" r="9" fill="var(--d5)"/>
+            <text x="268" y="334" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">腰越</text>
+            <text x="268" y="373" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">住 D5</text>
+          </a>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.6972,139.7043&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="398" cy="218" r="9" fill="var(--d6)"/>
+            <text x="398" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="var(--sans)">新宿</text>
+            <text x="398" y="240" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">住 D6</text>
+          </a>
+        </g>
+
+        <!-- 次要点位（当日行程点，可点击导航） -->
+        <g>
+          <!-- 香港起点 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=22.3080,113.9185&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="58" cy="455" r="5" fill="var(--card)" stroke="var(--d1)" stroke-width="2"/>
+            <text x="58" y="476" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">香港·起点</text>
+          </a>
+          <!-- 大室山 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=34.9030,139.0960&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="190" cy="335" r="4.5" fill="var(--d3)"/>
+            <text x="190" y="318" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">大室山</text>
+          </a>
+          <!-- 城崎海岸 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=34.8600,139.1200&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="184" cy="366" r="4.5" fill="var(--d3)"/>
+            <text x="200" y="366" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">城崎海岸</text>
+          </a>
+          <!-- 大船 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.3538,139.5313&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="248" cy="318" r="4.5" fill="var(--d5)"/>
+            <text x="240" y="308" text-anchor="end" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">大船</text>
+          </a>
+          <!-- 江之岛 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.3002,139.4772&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="240" cy="362" r="5" fill="var(--d5)"/>
+            <text x="228" y="382" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">江之岛</text>
+          </a>
+          <!-- 镰仓 · 大佛/八幡宫 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.3247,139.5558&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="322" cy="300" r="4.5" fill="var(--d6)"/>
+            <text x="334" y="306" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">镰仓·八幡宫</text>
+          </a>
+          <!-- 横滨 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.4528,139.6431&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="360" cy="270" r="4.5" fill="var(--d6)"/>
+            <text x="360" y="292" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">横滨</text>
+          </a>
+          <!-- 银座 -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=35.6717,139.7650&travelmode=transit" target="_blank" rel="noopener">
+            <circle cx="414" cy="208" r="4.5" fill="var(--d7)"/>
+            <text x="414" y="222" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" font-family="var(--sans)">银座</text>
+          </a>
+        </g>
+      </svg>
+
+      <!-- 图例 -->
+      <div class="legend">
+        <span class="li"><span class="sw" style="background:var(--d1)"></span><b>D1</b> 香港→成田→东京</span>
+        <span class="li"><span class="sw" style="background:var(--d2)"></span><b>D2</b> 东京↔迪士尼海洋</span>
+        <span class="li"><span class="sw" style="background:var(--d3)"></span><b>D3</b> 东京→大室山→稻取</span>
+        <span class="li"><span class="sw" style="background:var(--d4)"></span><b>D4</b> 稻取→下田·寝姿山·海中水族馆·白滨神社</span>
+        <span class="li"><span class="sw" style="background:var(--d5)"></span><b>D5</b> 下田→镰仓·江之岛巡礼</span>
+        <span class="li"><span class="sw" style="background:var(--d6)"></span><b>D6</b> 腰越→镰仓大佛·横滨→新宿</span>
+        <span class="li"><span class="sw" style="background:var(--d7)"></span><b>D7</b> 新宿→原宿·银座→成田</span>
+      </div>
+
+      <div class="map-note">示意图，非精确比例。手绘路线按天分色；大圆点为过夜城市，小圆点为当日行程点。</div>
+    </div>
+  </section>
+
+  <!-- ============ 3. 已确认事项 ============ -->
+  <section class="confirm">
+    <div class="sec-h"><span class="no">3</span><h2>已确认事项</h2></div>
+    <div class="card">
+
+      <!-- 去程航班 -->
+      <div class="item">
+        <div class="it-head"><span class="it-name">去程 · 国泰航空 CX520</span><span class="it-tag">已出票</span></div>
+        <div class="it-meta">
+          <span class="kv">9/28 周一</span>
+          <span class="kv"><b>10:40 HKT</b> 香港 HKG T1 起飞</span>
+          <span class="kv"><b>16:05 JST</b> 东京成田 NRT T2 落地</span>
+          <span class="kv">约 4h25m</span>
+        </div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=22.3080,113.9185&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到香港机场
+        </a>
+      </div>
+
+      <!-- 返程航班 -->
+      <div class="item">
+        <div class="it-head"><span class="it-name">返程 · 国泰航空 CX505</span><span class="it-tag">已出票</span></div>
+        <div class="it-meta">
+          <span class="kv">10/4 周日</span>
+          <span class="kv"><b>18:30 JST</b> 东京成田 NRT T2 起飞</span>
+          <span class="kv"><b>22:20 HKT</b> 香港 HKG T1 落地</span>
+          <span class="kv">约 4h50m</span>
+        </div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.7720,140.3929&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到成田机场
+        </a>
+      </div>
+
+      <!-- 酒店 -->
+      <div class="item">
+        <div class="it-head"><span class="it-name">D1–D2 · Hotel Metropolitan Edmont Tokyo</span><span class="it-tag">东京</span></div>
+        <div class="it-meta">
+          <span class="kv">入住 15:00 / 退房 11:00</span>
+          <span class="kv">参考房型：标准双床房</span>
+        </div>
+        <div class="it-meta"><span class="kv">〒102-8130 東京都千代田区飯田橋3丁目10番8号</span><span class="kv"><b>+81-3-3237-1111</b></span></div>
+        <div class="it-meta"><span class="kv">JR 飯田橋站東口步行约 5 分；成田机场约 55 分（Skyliner 转 JR）</span></div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.7075,139.7455&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到酒店
+        </a>
+      </div>
+
+      <div class="item">
+        <div class="it-head"><span class="it-name">D3 · 稻取银水庄 Inatori Ginsuiso</span><span class="it-tag">伊豆·温泉</span></div>
+        <div class="it-meta">
+          <span class="kv">入住 14:00–19:00 / 退房 10:00</span>
+          <span class="kv">参考房型：海景和室</span>
+          <span class="kv">一泊二食（含晚餐）</span>
+        </div>
+        <div class="it-meta"><span class="kv">〒413-0411 静岡県賀茂郡東伊豆町稲取1624-1</span><span class="kv"><b>+81-557-95-2211</b></span></div>
+        <div class="it-meta"><span class="kv">伊豆稲取駅免费接驳约 5 分；步行约 16 分</span></div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.7760,139.1000&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到旅馆
+        </a>
+      </div>
+
+      <div class="item">
+        <div class="it-head"><span class="it-name">D4 · 下田东急酒店 Shimoda Tokyu Hotel</span><span class="it-tag">伊豆·温泉</span></div>
+        <div class="it-meta">
+          <span class="kv">入住 15:00 / 退房 11:00</span>
+          <span class="kv">参考房型：海景双床房</span>
+        </div>
+        <div class="it-meta"><span class="kv">〒415-8510 静岡県下田市5丁目12-1</span><span class="kv"><b>+81-558-22-2411</b></span></div>
+        <div class="it-meta"><span class="kv">伊豆急下田駅免费接驳约 6 分</span></div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.6750,138.9430&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到酒店
+        </a>
+      </div>
+
+      <div class="item">
+        <div class="it-head"><span class="it-name">D5 · 别墅江之岛 Villa Enoshima</span><span class="it-tag">镰仓·腰越</span></div>
+        <div class="it-meta">
+          <span class="kv">入住 15:00 / 退房 11:00</span>
+          <span class="kv">整栋别墅 · 腰越安静住宅区</span>
+        </div>
+        <div class="it-meta"><span class="kv">〒248-0033 神奈川県鎌倉市腰越3-15-9</span><span class="kv"><b>090-4490-1616</b></span></div>
+        <div class="it-meta"><span class="kv">江之电 腰越站步行约 5–8 分；去江之岛 / 镰仓高校前皆近</span></div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3044,139.4980&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到民宿
+        </a>
+      </div>
+
+      <div class="item">
+        <div class="it-head"><span class="it-name">D6 · 东横INN 新宿歌舞伎町 Toyoko Inn Tokyo Shinjuku Kabukicho</span><span class="it-tag">待订</span></div>
+        <div class="it-meta">
+          <span class="kv">入住 15:00 / 退房 10:00</span>
+          <span class="kv">含免费自助早餐 6:30–9:00</span>
+        </div>
+        <div class="it-meta"><span class="kv">〒160-0021 東京都新宿区歌舞伎町2-20-15</span><span class="kv"><b>+81-3-5155-1045</b></span></div>
+        <div class="it-meta"><span class="kv">都营大江户线东新宿站 A1 出口步行约 3 分 / JR 新宿站东口步行约 15 分</span></div>
+        <a class="here" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6972,139.7043&travelmode=transit">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航到酒店
+        </a>
+      </div>
+
+      <div class="secure-note">为公开网址安全，本页不写入：票号、订单号、证件号、房间号。房型为官网参考，以实际预订为准。</div>
+    </div>
+  </section>
+
+  <!-- ============ 4. 逐日行程 ============ -->
+  <section>
+    <div class="sec-h"><span class="no">4</span><h2>逐日行程</h2></div>
+
+    <!-- D1 -->
+    <details class="day" open style="--day-accent:var(--d1)">
+      <summary>
+        <span class="dcolor" style="background:var(--d1)"><span class="dn">D1</span><span class="dw">周一</span></span>
+        <span class="day-title"><span class="t1">东京落地</span><span class="t2">9/28 · 香港 → 成田 → 飯田橋</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">全天路线 · 香港机场 → 成田 → 飯田橋酒店 → 肉屋の台所晚餐 → 涩谷逛街</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=22.3080,113.9185&destination=35.7075,139.7455&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>打开全天导航
+          </a>
+        </div>
+        <div class="timeline">
+          <div class="tl">
+            <div class="tm">08:00<small>HKT</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>抵达香港机场 T1</b></div><div class="where">国际线建议提前 2.5–3 小时到，办理值机托运</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=22.3080,113.9185&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">10:40<small>HKT</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>CX520 起飞</b></div><div class="where">国泰航空 · HKG T1 → NRT T2 · 约 4h25m · 含餐</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">16:05<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>落地东京成田 NRT T2</b></div><div class="where">用 Visit Japan Web 入境 QR 快速通关</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">17:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>成田 → 飯田橋 · 京成 Skyliner</b></div><div class="where">Skyliner 成田 → 日暮里 36 分（网上预购 ¥2,310，柜台 ¥2,580），转山手线 → 秋叶原、中央·总武线 → 飯田橋，全程约 55 分；顺路办 Suica / eSIM</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">19:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what">入住 Hotel Metropolitan Edmont Tokyo</div><div class="where">飯田橋東口步行 5 分</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.7075,139.7455&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+                    <div class="tl">
+            <div class="tm">19:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>肉屋の台所 飯田橋 晚餐（和牛烤肉吃到饱）</b></div><div class="where">千代田区飯田橋4-9-8 飯田橋プラザ 8F · JR 飯田橋站东口步行 30 秒 · 营业 12:00–23:00（最后点餐 22:30）· 电话 050-3172-4718 · 有中文菜单 · 吃到饱套餐 ¥4,980 起</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.7020,139.7445&travelmode=walking"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">21:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>飯田橋 → 新宿</b></div><div class="where">JR 中央线直达，约 11 分</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">21:25<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>唐吉诃德 歌舞伎町本店</b></div><div class="where">新宿区歌舞伎町1-16-5 · 24 小时 · 零食 / 药妆 / 电器 / 杂货一站式，免税（东南口另有一家 24h 店）</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6951,139.7028&travelmode=walking"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">22:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>思出横丁 + 黄金街 · 歌舞伎町霓虹夜景</b></div><div class="where">西新宿1-2（新宿西口高架下）· 80 家炭火居酒屋营业到深夜 · 黄金街 280 家小酒吧通宵 · 歌舞伎町霓虹招牌打卡</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6932,139.6996&travelmode=walking"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">23:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div></div>
+            <div class="bd"><div class="what"><b>一兰拉面 24h 宵夜 + 药妆补货</b></div><div class="where">一兰 新宿中央东口店 24 小时 · 唐吉诃德 24h 药妆比价 · 00:00 前 JR 中央线回飯田橋</div></div>
+          </div>
+
+        </div>
+        <div class="stay"><span class="bed"></span>今晚住 <b>Hotel Metropolitan Edmont Tokyo（東京）</b></div>
+      </div>
+    </details>
+
+    <!-- D2 -->
+    <details class="day" style="--day-accent:var(--d2)">
+      <summary>
+        <span class="dcolor" style="background:var(--d2)"><span class="dn">D2</span><span class="dw">周二</span></span>
+        <span class="day-title"><span class="t1">东京迪士尼海洋</span><span class="t2">9/29 · DisneySea 全天</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">全天路线 · 飯田橋 → 迪士尼海洋 → 飯田橋</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=35.7075,139.7455&destination=35.6275,139.8888&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>打开全天导航
+          </a>
+        </div>
+        <div class="timeline">
+          <div class="tl">
+            <div class="tm">07:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>飯田橋 → 舞滨站</b></div><div class="where">JR 约 45 分 + 迪士尼专线；万圣节季人多，建议 8:30 前到园排队安检</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">09:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>开园 → 立刻在 App 抢票</b></div><div class="where">入园先买「翱翔·梦幻奇航」DPA（¥2,000），再领免费 PP；热门项目错过上午就难抢</div>
+              <span class="book">需提前购指定日期门票</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6275,139.8888&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">09:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>① 海底两万里 20,000 Leagues Under the Sea</b></div><div class="where">乘潜水艇探神秘海底，开园时段人少免排队；惊魂古塔 9/28–11/5 维修关闭，改玩此项</div>
+              <span class="scene">神秘岛</span>
+              <span class="book">PP 免费可领</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">10:20<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>② 玩具总动员疯狂游戏屋 Toy Story Mania!</b></div><div class="where">3D 射击计分，同区域顺路；排队久，可买 DPA 或先领 PP</div>
+              <span class="scene">美国海滨</span>
+              <span class="book">DPA ¥2,000 可买</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">11:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>午餐 · 尚比尼兄弟餐厅（意面 / 披萨）</b></div><div class="where">人均 ¥1,000–1,500，2 楼露台可边吃边看水上表演；11:30 前入座免排队</div>
+              <span class="scene">地中海港湾</span>
+              <span class="book">性价比高</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">12:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>③ 地心探险之旅 Journey to the Center of the Earth</b></div><div class="where">火山过山车，时速 75km 冲破火山口；9/29 仍开放，10/1 起闭园维护，务必今天玩</div>
+              <span class="scene">神秘岛</span>
+              <span class="book">10/1 起闭园</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">13:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>④ 翱翔·梦幻奇航 Soaring: Fantastic Flight</b></div><div class="where">全园人气第一的 4D 飞行，用早上买的 DPA 直入；排队常年 100 分以上</div>
+              <span class="scene">地中海港湾</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>⑤ 安娜与艾莎的冰雪之旅 Frozen Journey</b></div><div class="where">2024 新园区梦幻泉乡头牌，室内船游沉浸电影名曲；必须持 DPA 或 SP 才能进</div>
+              <span class="scene">梦幻泉乡</span>
+              <span class="book">DPA ¥2,000 或 SP</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">15:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>⑥ 小飞侠梦幻岛历险 Peter Pan（或 乐佩公主天灯盛会）</b></div><div class="where">同为梦幻泉乡新项目，3D 沉浸；DPA 一次只能持一张，二选一即可</div>
+              <span class="scene">梦幻泉乡</span>
+              <span class="book">DPA ¥2,000</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">17:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>晚餐 · S.S. 哥伦比亚号餐厅（西餐正餐）</b></div><div class="where">豪华邮轮晚宴氛围，人均 ¥2,000–5,000；提前 1 个月官网预约，或当天 9:00 抢号</div>
+              <span class="scene">美国海滨</span>
+              <span class="book">需预约</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">19:50<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>坚信！梦想之海 Believe! Sea of Dreams</b></div><div class="where">地中海港湾夜间水上烟花秀（19:50–20:20 约 30 分），提前 30 分占位；可买 DPA ¥2,500 指定观赏区</div>
+              <span class="scene">地中海港湾</span>
+              <span class="book">DPA ¥2,500 可买</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">20:25<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>收尾 · 回补项目 / 买达菲限定</b></div><div class="where">坚信 20:20 结束后买达菲（入口旁 McDuck's 百货最全），20:45 前回港湾等高空烟花</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">20:50<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>万圣高空夜 Night High Halloween</b></div><div class="where">9/16–10/31 万圣节限定高空烟花（乐园+海洋同步，20:50–20:55），全园抬头可见</div>
+              <span class="scene">全园高空</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">22:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what">返回飯田橋酒店</div><div class="where">看完万圣烟花 20:55 散场，度假区线 + JR 约 1 小时，22:15 前后到飯田橋</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">22:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div></div>
+            <div class="bd"><div class="what"><b>鳥貴族 飯田橋西口店 宵夜（预约 22:30）</b></div><div class="where">千代田区富士見2-11-10 3F · JR 飯田橋西口步行 1 分 · 营业至凌晨 04:00 · 预约电话 050-3189-7038</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.7015,139.7460&travelmode=walking"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="seg"><span class="tag">D2 园区美食</span><span class="line"></span></div>
+          <div class="food">
+            <b>可预约正餐</b>：S.S.哥伦比亚号（西餐 ¥2,000–5,000）· 樱花餐厅（日料 ¥2,000）· 卡纳雷托（意餐）· 泰迪罗斯福欢饮厅（轻食+酒）· 水平线海湾餐厅（迪士尼明星餐）<br>
+            <b>性价比快餐</b>：尚比尼兄弟（意面/披萨 ¥1,000–1,500）· 鳕鱼岬锦标（达菲歌舞秀）· 凯兹堡餐饮广场（印度咖喱 ¥1,000）<br>
+            <b>必吃小吃</b>：火鸡腿（充电小站 ¥800）· 饺子包（鹦鹉螺号小厨 ¥500）· 米奇苹果派（饼干妈妈西点屋 ¥330）· 鲜虾圈（海边小吃铺 ¥500）<br>
+            <span class="warn">⚠ 麦哲伦餐厅 7/1–9/30 休止，9/29 当天不营业</span>；正餐建议提前 1 个月官网预约，当天 9:00 也会放号
+          </div>
+        </div>
+        <div class="stay"><span class="bed"></span>今晚住 <b>Hotel Metropolitan Edmont Tokyo（東京）</b></div>
+      </div>
+    </details>
+
+    <!-- D3 -->
+    <details class="day" style="--day-accent:var(--d3)">
+      <summary>
+        <span class="dcolor" style="background:var(--d3)"><span class="dn">D3</span><span class="dw">周三</span></span>
+        <span class="day-title"><span class="t1">伊豆观海列车一日游 · 银水庄</span><span class="t2">9/30 · 大室山 · 观海列车 · 城崎海岸</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">跟团一日游 · 飯田橋上车 → 大室山 → 观海列车 → 城崎海岸 →（脱团）银水庄</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=34.8600,139.1200&destination=34.7760,139.1000&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>城崎海岸→银水庄导航
+          </a>
+        </div>
+        <div class="timeline">
+          <div class="tl">
+            <div class="tm">6:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>酒店上门接（伊豆观海列车一日游）</b></div><div class="where">東京都内 7 区酒店门口集合，飯田橋出发约 3.5–4 小时车程到大室山；随身行李放大巴</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">10:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>大室山（缆车 + 火山口步道）</b></div><div class="where">缆车往返 ¥1000 自理；圆锥形山体登顶远眺富士山，约 2.5 小时</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.9030,139.0960&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">13:23<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>伊豆观海列车 → 伊豆稻取站</b></div><div class="where">团赠票 · 黑船号 / 金目鲷号，伊豆高原 → 伊豆稻取 23 分全角度观海，含片濑白田-稻取 5 分精华段</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:10<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>城崎海岸 · 门胁吊桥</b></div><div class="where">九公里太平洋海岸线，悬空吊桥看绝壁海浪，约 40 分</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.8600,139.1200&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">15:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>脱团，城崎海岸 → 稻取</b></div><div class="where">不跟大巴回东京；城崎海岸站坐伊豆急行线南下到伊豆稻取站约 15 分，记得从大巴取回行李</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">15:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>抵达银水庄 check-in</b></div><div class="where">伊豆稻取站免费接驳约 5 分；一泊二食，晚餐约 18:00</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.7760,139.1000&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">18:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div></div>
+            <div class="bd"><div class="what">露天温泉 + 会席料理晚餐</div>
+            </div>
+          </div>
+        </div>
+        <div class="stay"><span class="bed"></span>今晚住 <b>稻取银水庄 Inatori Ginsuiso（伊豆稻取）</b></div>
+      </div>
+    </details>
+
+    <!-- D4 -->
+    <details class="day" style="--day-accent:var(--d4)">
+      <summary>
+        <span class="dcolor" style="background:var(--d4)"><span class="dn">D4</span><span class="dw">周四</span></span>
+        <span class="day-title"><span class="t1">伊豆稻取 → 下田</span><span class="t2">10/1 · 寝姿山 · 海中水族馆 · 白滨神社 · 下田东急</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">全天路线 · 稻取 → 下田 · 放行李 · 寝姿山 · 海中水族馆 · 白滨神社</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=34.7760,139.1000&destination=34.6750,138.9430&waypoints=34.67917,138.95167|34.6661,138.9460|34.6712,138.9693&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>打开全天导航
+          </a>
+        </div>
+        <div class="timeline">
+          <div class="tl">
+            <div class="tm">10:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>退房银水庄</b></div><div class="where">退房后稻取渔港吃金目鲷（金目鲷产地），之后坐伊豆急行线南下</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">13:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>伊豆急行线 → 下田</b></div><div class="where">稻取 → 下田约 20–30 分</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">13:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>下田东急放行李</b></div><div class="where">伊豆急下田駅免费接驳约 6 分，寄存行李后轻装出发</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.6750,138.9430&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>寝姿山缆车（下田ロープウェイ）</b></div><div class="where">下田站步行 1 分，540m 缆车 3 分半登顶看下田港 + 伊豆七岛全景；成人 ¥1,500 往返，末班上行 16:30</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.67917,138.95167&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">15:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>下田海中水族馆</b></div><div class="where">天然海湾海上水族馆，海豚/海狮表演最出彩；打车约 5 分（¥1,100 左右）或巴士 7 分，最晚入馆 15:30，成人 ¥2,500</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.6661,138.9460&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">16:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>白滨神社（海上鸟居）+ 白滨海岸</b></div><div class="where">伊豆最古老神社 2400 年，海上红鸟居求姻缘、千年神木；打车约 7–8 分，赶 17:15 日落前海上鸟居最出片</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=34.6712,138.9693&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">17:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div></div>
+            <div class="bd"><div class="what">佩里路 + 下田公园散步，回酒店泡温泉 + 晚饭</div>
+            </div>
+          </div>
+        </div>
+        <div class="stay"><span class="bed"></span>今晚住 <b>下田东急酒店 Shimoda Tokyu Hotel（下田）</b></div>
+      </div>
+    </details>
+
+    <!-- D5 -->
+    <details class="day" style="--day-accent:var(--d5)">
+      <summary>
+        <span class="dcolor" style="background:var(--d5)"><span class="dn">D5</span><span class="dw">周五</span></span>
+        <span class="day-title"><span class="t1">下田 → 镰仓 · 《爱情怎么翻译?》巡礼</span><span class="t2">10/2 · 泡温泉 · 镰仓5景 + 江之岛6景</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">全天路线 · 下田东急 → 别墅江之岛（腰越）→ 鎌倉高校前·七里滨·稻村崎·极乐寺·御灵神社 → 江之岛（片濑渔港·海蜡烛）→ 镰仓站 Sasho 晚餐</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=34.6750,138.9430&destination=35.3203,139.5478&waypoints=35.3044,139.4980|35.3046,139.5169|35.3073,139.5207|35.3035,139.5225|35.3089,139.5287|35.3107,139.5370|35.2970,139.4785|35.3012,139.4793|35.3008,139.4790|35.3002,139.4772&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>打开全天导航
+          </a>
+        </div>
+        <div class="timeline">
+          <div class="tl">
+            <div class="tm">07:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>下田东急露天温泉</b></div><div class="where">温泉早晨即开放，泡个晨汤再出发</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">11:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>退房，去伊豆急下田站</b></div><div class="where">下田东急退房 11:00，免费接驳约 6 分到伊豆急下田站</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">12:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>踊り子号特急 下田 → 大船</b></div><div class="where">直达约 2 小时不换乘（全车指定席）；大船换 JR 横须贺线 / 湘南新宿线 6 分到镰仓，再换江之电约 20 分到腰越</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>抵达镰仓，入住 / 寄存别墅江之岛</b></div><div class="where">腰越 3-15-9，江之电腰越站旁；放好行李轻装去打卡</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3044,139.4980&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+                    <div class="tl">
+            <div class="tm">14:50<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>鎌倉高校前站 · 平交道</b></div><div class="where">江之电腰越站 1 站 2 分；《灌篮高手》OP 平交道同款机位，站旁海滩即达</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3046,139.5169&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">15:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>七里滨海岸</b></div><div class="where">江之电沿线最开阔的海岸线，江之岛与富士山同框</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3073,139.5207&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+<div class="tl">
+            <div class="tm">15:40<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>稻村崎公園</b></div><div class="where">江之电腰越站 3 站；同时眺望江之岛与富士山的绝景拍照点</div>
+              <span class="scene">剧：男女主同框眺望的取景地</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3035,139.5225&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">16:10<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>極樂寺站</b></div><div class="where">关东车站百选木造站房，站前红色邮筒是标志；顺道成就院 / 极乐寺（各步行 2–3 分）</div>
+              <span class="scene">剧：男女主从极乐寺站上车去江之岛</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3089,139.5287&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">16:40<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>御靈神社</b></div><div class="where">拍江之电与鸟居同框（列车约 10–15 分一班，抓好时机）</div>
+              <span class="scene">剧：两人约定一起吃晚餐的地点</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3107,139.5370&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">17:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>江之电 → 江之岛站</b></div><div class="where">御靈神社步行 3 分到長谷站上车 → 江之岛约 4 站 12 分</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">17:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>片瀨漁港 · 白燈塔（看日落）</b></div><div class="where">江之岛站步行 12 分；夕阳长椅「人生照」，晴日可见富士山，10/2 日落约 17:15</div>
+              <span class="scene">剧：两人夕阳下并肩坐长椅，茂熙拍下浩镇背影</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.2970,139.4785&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">17:45<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>弁財天仲見世通</b></div><div class="where">边吃边逛：吻仔鱼料理、整只章鱼仙贝等特色小吃</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3012,139.4793&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">18:05<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>tenzan lab. 附近 · 江之島郵局</b></div><div class="where">沿仲见世通寻找剧中外景与黑色邮筒；tenzan lab. 现实是甜品冰品店</div>
+              <span class="scene">剧：茂熙找小桃的店，浩镇借肩膀让她找回自尊</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3008,139.4790&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">18:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>江之島海蠟燭（夜景）</b></div><div class="where">登展望台看海景；日落后点灯，俯瞰湘南夜景</div>
+              <span class="scene">剧：浩镇回江之岛寻找暗恋对象的展望塔</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3002,139.4772&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">18:40<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>江之电 → 镰仓站</b></div><div class="where">江之岛站上车，约 25 分到镰仓站</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">19:10<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>抵达镰仓站，步行去 Sasho</b></div><div class="where">西口步行约 8 分；古民家和牛寿喜烧涮涮锅</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3203,139.5478&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">19:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>Sasho 和牛寿喜烧晚餐（预约）</b></div><div class="where">鎌倉市扇ガ谷1-11-1 · 0467-24-3233 · 镰仓站西口步行 8 分 · 古民家 · 庭园景观 · 和牛寿喜烧/涮涮锅</div>
+              <span class="book">预约 19:15 · 2 人 · 晚餐套餐 ¥8,800 起 + 10% 服务费</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3203,139.5478&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">21:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div></div>
+            <div class="bd"><div class="what">晚餐后江之电回腰越（别墅江之岛）</div></div>
+          </div>
+        </div>
+        <div class="stay"><span class="bed"></span>今晚住 <b>别墅江之岛 Villa Enoshima（腰越）</b></div>
+      </div>
+    </details>
+
+    <!-- D6 -->
+    <details class="day" style="--day-accent:var(--d6)">
+      <summary>
+        <span class="dcolor" style="background:var(--d6)"><span class="dn">D6</span><span class="dw">周六</span></span>
+        <span class="day-title"><span class="t1">镰仓大佛 · 横滨 · 夜宿新宿</span><span class="t2">10/3 · 大佛 · 八幡宫 · 小町通 · 横滨 · 新宿</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">全天路线 · 别墅江之岛 → 长谷镰仓大佛 → 镰仓（鹤冈八幡宫·小町通）→ 横滨（红砖仓库·港未来·中华街）→ 新宿 → 芝浦 DRIFTWOOD 酒吧（21:30 预约）</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=35.3044,139.4980&destination=35.6972,139.7043&waypoints=35.3168,139.5360|35.3247,139.5558|35.3180,139.5497|35.4528,139.6431|35.4548,139.6315|35.4420,139.6456&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>打开全天导航
+          </a>
+        </div>
+                <div class="timeline">
+          <div class="tl">
+            <div class="tm">07:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>退房别墅江之岛，江之电去长谷</b></div><div class="where">行李随行（長谷站旁投币柜可寄存）；腰越站约 15 分到長谷站，步行 7 分到大佛</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">08:05<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>镰仓大佛 · 高德院</b></div><div class="where">長谷4-2-28 · 8:00 开门即入（门票 300 円）；露天青铜大佛国宝，可入胎内参观（另 50 円）</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3168,139.5360&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">08:40<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>長谷站附近平交道</b></div><div class="where">田中理容院前平交道，江之电擦身而过；拍完步行回長谷站，江之电 3 站约 8 分到镰仓站</div>
+              <span class="scene">剧：第 1 集高潮「浩镇消失」场景</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3113,139.5355&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">09:10<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>鹤冈八幡宫</b></div><div class="where">镰仓站沿若宫大路步行约 12 分；源赖朝所创的幕府精神中心，大石段 · 源氏池庭园</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3247,139.5558&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">09:55<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>小町通 → 镰仓站</b></div><div class="where">从八幡宫经段葛走回镰仓站，边走边吃：吻仔鱼丼 · 鸽子饼干 · 可乐饼；JR 横须贺线约 25 分到横滨</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.3180,139.5497&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">11:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>横滨红砖仓库 赤レンガ倉庫</b></div><div class="where">中区新港1-1 · 明治红砖建筑群，海港散步 + 商店 / 咖啡</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.4528,139.6431&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">12:10<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>港未来 21 · 地标塔 / 大摩天轮</b></div><div class="where">西区港未来 · 沿海步道 + 观景，白天上地标塔看横滨湾</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.4548,139.6315&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">13:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>横滨中华街午饭</b></div><div class="where">山下町 · 世界最大中华街之一，肉包 / 小笼包 / 海鲜炒面</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.4420,139.6456&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:40<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>山下公园散步</b></div><div class="where">中华街步行 5 分；沿海公园看海、冰川丸邮轮与红鞋女孩像</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.4460,139.6490&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">15:45<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>横滨 → 新宿</b></div><div class="where">横滨站 JR 湘南新宿线直达约 30 分到新宿</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">16:45<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>抵达新宿 · 东横INN 入住</b></div><div class="where">东新宿站 A1 出口步行约 3 分；15:00 起入住，先寄存行李休息</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6972,139.7043&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">19:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>新宿晚饭 · 歌舞伎町夜景</b></div><div class="where">思出横丁 / 黄金街居酒屋，歌舞伎町霓虹夜景</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">21:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div></div>
+            <div class="bd"><div class="what"><b>DRIFTWOOD BAR & GRILL 酒吧（预约 21:30）</b></div><div class="where">费尔蒙东京酒店 43 层 · 港区芝浦1-1-1 蓝前沿芝浦塔S · +81-3-4321-1111；酒吧营业至 24:00（酒水最后下单 23:30），东京塔·东京湾夜景佐酒，Smart Casual 着装；新宿→大門 都营大江户线约 16 分 + 步行 12 分（或 JR 山手线浜松町南口步行 6 分），建议 20:55 前出发</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6510,139.7573&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+        </div>
+<div class="stay"><span class="bed"></span>今晚住 <b>东横INN 新宿歌舞伎町 Toyoko Inn Tokyo Shinjuku Kabukicho（新宿）</b></div>
+      </div>
+    </details>
+
+    <!-- D7 -->
+    <details class="day" style="--day-accent:var(--d7)">
+      <summary>
+        <span class="dcolor" style="background:var(--d7)"><span class="dn">D7</span><span class="dw">周日</span></span>
+        <span class="day-title"><span class="t1">原宿·表参道 + 银座 · 返程</span><span class="t2">10/4 · 表参道 · 银座 · 成田 → 香港</span></span>
+        <span class="day-caret">▸</span>
+      </summary>
+      <div class="day-body">
+        <div class="day-nav">
+          <span class="rt">全天路线 · 新宿东横INN → 原宿 → 表参道 → 银座 → 成田机场</span>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=35.6972,139.7043&destination=35.7720,140.3929&waypoints=35.6691,139.7050|35.6677,139.7065|35.6691,139.7080|35.6665,139.7149|35.6717,139.7650&travelmode=transit">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>打开全天导航
+          </a>
+        </div>
+        <div class="timeline">
+          <div class="tl">
+            <div class="tm">08:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>退房东横INN，寄存行李</b></div><div class="where">10:00 前退房，先寄行李轻装逛街，回程再取</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">09:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>山手线到原宿</b></div><div class="where">新宿 → 原宿山手线约 4 分</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">09:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>竹下通 / Laforet 原宿</b></div><div class="where">神宫前1丁目 · 竹下通扭蛋 + chiikawa baker + HelloKitty Japan 专门店 · Laforet 11:00 开</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6691,139.7050&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">10:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>表参道主街 → 表参道 Hills</b></div><div class="where">神宫前4-12-10 · 顺路东急 Plaza 表参道原宿 4F 扭蛋层 · Hills 11:00 开</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6655,139.7084&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">10:50<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>Kiddy Land 原宿本店（5 层 IP 周边）</b></div><div class="where">神宫前6-1-9 · 周日 10:30 开门 · 三丽鸥 / 迪士尼 / 三丽鸥分层，表参道最大角色周边店</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6677,139.7065&travelmode=walking"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">11:15<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>Stüssy 原宿店（补货）</b></div><div class="where">神宫前3-27-1 · 11:00–20:00 · D1 没买到就在这里补</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6691,139.7080&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">11:35<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>Gentle Monster 东京店（必去）</b></div><div class="where">港区南青山5-3-2 The Jewels of Aoyama · 11:00–20:00 · 表参道站 A5 出口步行 5 分 · 逛完从表参道站坐银座线直达银座约 14 分（11:50 动身正好赶 12:00 午餐）</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6665,139.7149&travelmode=walking"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">12:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>Ginza Shimon 午餐 · 鮨 銀座 鰤門（预约）</b></div><div class="where">銀座5-5-13 坂口ビル 6F · 昼のおまかせ ×2（预约 ID XUAT7K）· 03-5537-0010 · 银座站步行 2 分 · 江户前寿司</div>
+              <span class="book">预约 12:00 · 2 人 · 迟到 15 分钟可能取消</span>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6712,139.7648&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">13:10<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>银座 Ginza Six + 优衣库旗舰店</b></div><div class="where">银座6-10-1 · Ginza Six 10:30–20:30 · 优衣库 12 层旗舰 11:00–21:00 · 顺路无印良品/和光 · 午餐后从容逛约 50 分</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.6699,139.7645&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>银座 → 新宿东横INN 取行李</b></div><div class="where">丸之内线银座 → 新宿约 17 分，取行李后新宿站出发</div></div>
+          </div>
+          <div class="tl">
+            <div class="tm">14:50<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>山手线 → 日暮里，转 Skyliner</b></div><div class="where">新宿 → 日暮里约 25 分；日暮里乘 Skyliner 直达成田约 41 分</div>
+              <span class="book">返程 Skyliner 车票建议提前购买</span>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">16:00<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>抵达成田机场 NRT T2</b></div><div class="where">国际线提前 2.5 小时到，办理值机托运、安检</div>
+              <a class="goto" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=35.7720,140.3929&travelmode=transit"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>导航</a>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">18:30<small>JST</small></div>
+            <div class="dot-col"><div class="dot major"></div><div class="bar"></div></div>
+            <div class="bd"><div class="what"><b>CX505 起飞</b></div><div class="where">国泰航空 · NRT T2 → HKG T1 · 约 4h50m</div>
+            </div>
+          </div>
+          <div class="tl">
+            <div class="tm">22:20<small>HKT</small></div>
+            <div class="dot-col"><div class="dot"></div></div>
+            <div class="bd"><div class="what"><b>落地香港 HKG T1</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="stay"><span class="bed"></span>今晚 <b>飞机上，旅程结束</b></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ 5. 待办清单 ============ -->
+  <section class="todo">
+    <div class="sec-h"><span class="no">5</span><h2>待办清单</h2></div>
+    <div class="card">
+      <div class="t-item"><span class="idx">01</span><div class="tt">填好 Visit Japan Web，生成入境 QR 截图存相册<small>入境时出示，可省约 20 分钟排队</small></div></div>
+      <div class="t-item"><span class="idx">02</span><div class="tt">购买东京迪士尼海洋指定日期门票（D2 · 9/29）<small>9–10 月万圣节活动季，官方 App / 官网提前 1–2 周购买，指定日期制当日可能售罄</small></div></div>
+      <div class="t-item"><span class="idx">03</span><div class="tt">下单别墅江之岛 Villa Enoshima（D5 · 10/2）<small>〒248-0033 神奈川県鎌倉市腰越3-15-9 · 090-4490-1616</small></div></div>
+      <div class="t-item"><span class="idx">04</span><div class="tt">下单东横INN 新宿歌舞伎町（D6 · 10/3）<small>〒160-0021 東京都新宿区歌舞伎町2-20-15 · +81-3-5155-1045</small></div></div>
+      <div class="t-item"><span class="idx">05</span><div class="tt">下单伊豆观海列车一日游（D3 · 9/30）+ Skyliner 车票（D1 去程 + D7 返程）<small>一日游含大室山（缆车 ¥1000 自理）、观海列车票赠送、城崎海岸；Skyliner 网上预购 ¥2,310 比柜台省 ¥270</small></div></div>
+      <div class="t-item"><span class="idx">06</span><div class="tt">准备交通卡（Suica / PASMO）<small>可用手机 Wallet 添加，或到成田现场购买实体卡</small></div></div>
+      <div class="t-item"><span class="idx">07</span><div class="tt">准备 eSIM / 租 Wi-Fi<small>eSIM 比租设备方便，落地即用</small></div></div>
+      <div class="t-item"><span class="idx">08</span><div class="tt">换好日元现金<small>温泉旅馆周边小店、交通卡充值可能只收现金</small></div></div>
+      <div class="t-item"><span class="idx">09</span><div class="tt">确认 10 月初天气，带薄外套<small>东京 20–25 度，伊豆 / 镰仓海边早晚偏凉</small></div></div>
+      <div class="t-item"><span class="idx">10</span><div class="tt">预订踊り子号特急指定席（D5 · 下田 → 大船）<small>全车指定席，出发前在 JR 绿色窗口或售票机划位（下田站即可办）</small></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 6. 实用贴士 ============ -->
+  <section class="tips">
+    <div class="sec-h"><span class="no">6</span><h2>实用贴士</h2></div>
+    <div class="card">
+      <div class="tip"><h4>交通</h4><p>全程就几段长距离（下田→镰仓、新宿→成田），JR Pass 不划算，直接单买票即可；D3 东京→稻取为跟团一日游，无需自己买票。市区用 Suica/PASMO 最方便。</p></div>
+      <div class="tip"><h4>入境</h4><p>提前在 Visit Japan Web 填好护照、海关申报，生成蓝 + 黄两个 QR，落地后扫码通关，比纸质快约 20 分钟。</p></div>
+      <div class="tip"><h4>迪士尼海洋</h4><p>下载官方 App 看当日开园时间、预约热门项目（万圣节季人流大）。Land 与 Sea 是两园，本次选 Sea。</p></div>
+      <div class="tip"><h4>温泉礼仪</h4><p>银水庄与下田东急均有温泉，入浴前先淋浴、不穿泳衣、毛巾不入池；部分温泉对纹身有限制，若有纹身可提前询问。</p></div>
+      <div class="tip"><h4>《爱情怎么翻译?》打卡</h4><p>极乐寺站、御灵神社、稻村崎公园都在江之电沿线，建议买江之电一日券（D5、D6 两天都坐，一日券当日有效需各买一张）；御灵神社拍「列车穿鸟居」约 10–15 分钟一班，提前占位；鎌倉高校前平交道是《灌篮高手》OP 同款机位；剧集「浩镇消失」的長谷平交道安排在 D6 早上与镰仓大佛同游；江之岛海蜡烛日落后亮灯，看完约 18:40 前坐江之电去镰仓站 Sasho 吃晚餐（19:15 预约）。</p></div>
+      <div class="tip"><h4>退税</h4><p>同一店铺同日购物满 5000 日元（不含税）可免税，护照随身携带。</p></div>
+      <div class="tip"><h4>紧急联络</h4><p>警察 110 · 急救 / 消防 119 · 中国驻日使馆领保 +81-3-3403-3064。公共 Wi-Fi 可连「Japan Wi-Fi auto-connect」。</p></div>
+      <div class="tip"><h4>时区</h4><p>日本 JST = UTC+9，比香港（HKT = UTC+8）快 1 小时。本页所有时间均已标注时区，倒计时按绝对时间计算，跨时区打开不会算错。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    行程日期：2026 年 9 月 28 日（周一）– 10 月 4 日（周日）· 2 人 · 东京 / 伊豆 / 镰仓 / 江之岛 / 横滨。<br>
+    本页为公开网址，<span class="warn">不含票号、订单号、证件号、房间号</span>。房型为官网参考，入住退房时间与接驳以酒店实际确认为准。
+  </footer>
+</div>
+
+<script>
+  // ---- next event + countdown (timezone-safe) ----
+  var events = [
+    { t:"2026-09-28T10:40:00+08:00", title:"去程起飞 CX520", sub:"香港 HKG T1 → 东京成田 NRT T2", tz:"HKT（UTC+8）· 国泰航空", nav:"22.3080,113.9185", navLabel:"香港国际机场" },
+    { t:"2026-09-28T16:05:00+09:00", title:"落地东京成田", sub:"NRT T2 入境后前往飯田橋", tz:"JST（UTC+9）", nav:"35.7720,140.3929", navLabel:"成田国际机场" },
+    { t:"2026-09-28T19:15:00+09:00", title:"肉屋の台所 飯田橋 晚餐", sub:"和牛烤肉吃到饱 · 飯田橋站东口 30 秒", tz:"JST（UTC+9）", nav:"35.7020,139.7445", navLabel:"肉屋の台所 飯田橋" },
+    { t:"2026-09-28T21:00:00+09:00", title:"出发去新宿逛街", sub:"唐吉诃德歌舞伎町 24h · 思出横丁 · 歌舞伎町夜景", tz:"JST（UTC+9）", nav:"35.6951,139.7028", navLabel:"唐吉诃德 歌舞伎町本店" },
+    { t:"2026-09-29T07:30:00+09:00", title:"出发去东京迪士尼海洋", sub:"飯田橋 → 舞滨（万圣节季早到）", tz:"JST（UTC+9）", nav:"35.6275,139.8888", navLabel:"东京迪士尼海洋" },
+    { t:"2026-09-29T09:00:00+09:00", title:"东京迪士尼海洋开园", sub:"DisneySea 全天", tz:"JST（UTC+9）", nav:"35.6275,139.8888", navLabel:"东京迪士尼海洋" },
+    { t:"2026-09-29T22:15:00+09:00", title:"返回飯田橋酒店", sub:"看完万圣烟花散场", tz:"JST（UTC+9）", nav:"35.7075,139.7455", navLabel:"飯田橋酒店" },
+    { t:"2026-09-29T22:30:00+09:00", title:"鳥貴族 飯田橋西口店宵夜（预约）", sub:"JR 飯田橋西口步行 1 分 · 营业至凌晨 04:00", tz:"JST（UTC+9）", nav:"35.7015,139.7460", navLabel:"鳥貴族 飯田橋西口店" },
+    { t:"2026-09-30T06:30:00+09:00", title:"伊豆一日游出发", sub:"酒店上门接 · 大室山 · 观海列车 · 城崎海岸", tz:"JST（UTC+9）", nav:"35.7075,139.7455", navLabel:"飯田橋酒店" },
+    { t:"2026-09-30T14:50:00+09:00", title:"脱团前往银水庄", sub:"城崎海岸 → 稻取 · 温泉旅馆", tz:"JST（UTC+9）", nav:"34.8600,139.1200", navLabel:"城崎海岸" },
+    { t:"2026-10-02T11:00:00+09:00", title:"下田退房前往镰仓", sub:"踊り子号直达大船 · 约 2.5 小时", tz:"JST（UTC+9）", nav:"34.6750,138.9430", navLabel:"下田站" },
+    { t:"2026-10-02T14:50:00+09:00", title:"《爱情怎么翻译?》巡礼开始", sub:"鎌倉高校前 · 七里滨 · 稻村崎 · 極樂寺 · 御靈神社", tz:"JST（UTC+9）", nav:"35.3046,139.5169", navLabel:"鎌倉高校前平交道" },
+    { t:"2026-10-02T17:15:00+09:00", title:"片瀨漁港看日落", sub:"《爱情怎么翻译?》白燈塔 · 人生照", tz:"JST（UTC+9）", nav:"35.2970,139.4785", navLabel:"片瀨漁港" },
+    { t:"2026-10-02T19:15:00+09:00", title:"Sasho 和牛寿喜烧晚餐（预约）", sub:"镰仓站西口步行 8 分 · 2 人", tz:"JST（UTC+9）", nav:"35.3203,139.5478", navLabel:"Sasho 镰仓" },
+    { t:"2026-10-03T07:30:00+09:00", title:"退房 · 镰仓大佛", sub:"江之电去长谷 8:00 开门即入 · 八幡宫·小町通 → 横滨", tz:"JST（UTC+9）", nav:"35.3168,139.5360", navLabel:"镰仓大佛·高德院" },
+    { t:"2026-10-03T15:45:00+09:00", title:"横滨 → 新宿", sub:"JR 湘南新宿线直达", tz:"JST（UTC+9）", nav:"35.6972,139.7043", navLabel:"新宿东横INN" },
+    { t:"2026-10-03T21:30:00+09:00", title:"DRIFTWOOD BAR & GRILL 酒吧（预约）", sub:"费尔蒙东京 43 层 · 港区芝浦 · 东京塔夜景佐酒", tz:"JST（UTC+9）", nav:"35.6510,139.7573", navLabel:"DRIFTWOOD BAR & GRILL" },
+    { t:"2026-10-04T09:00:00+09:00", title:"原宿·表参道 + 银座逛街", sub:"竹下通 · Kiddy Land · Stüssy · Gentle Monster", tz:"JST（UTC+9）", nav:"35.6655,139.7084", navLabel:"表参道" },
+    { t:"2026-10-04T12:00:00+09:00", title:"Ginza Shimon 午餐（预约）", sub:"鮨 銀座 鰤門 · 昼のおまかせ ×2", tz:"JST（UTC+9）", nav:"35.6712,139.7648", navLabel:"Ginza Shimon" },
+    { t:"2026-10-04T14:50:00+09:00", title:"出发去成田", sub:"新宿 → 日暮里转 Skyliner", tz:"JST（UTC+9）", nav:"35.6908,139.7000", navLabel:"新宿站" },
+    { t:"2026-10-04T18:30:00+09:00", title:"返程起飞 CX505", sub:"东京成田 NRT T2 → 香港 HKG T1", tz:"JST（UTC+9）· 国泰航空", nav:"35.7720,140.3929", navLabel:"成田国际机场" }
+  ];
+
+  function pad(n){ return (n<10?"0":"")+n; }
+  function nextEvent(){
+    var now = Date.now();
+    for (var i=0;i<events.length;i++){
+      if (Date.parse(events[i].t) > now) return events[i];
+    }
+    return null;
+  }
+
+  function render(){
+    var e = nextEvent();
+    var el = document.getElementById("evTitle");
+    if (!e){
+      el.textContent = "旅程已结束";
+      document.getElementById("evSub").textContent = "2026.9.28–10.4 东京 · 伊豆 · 镰仓 · 横滨";
+      document.getElementById("evTz").textContent = "";
+      document.getElementById("cdD").textContent = "0";
+      document.getElementById("cdH").textContent = "0";
+      document.getElementById("cdM").textContent = "0";
+      document.getElementById("cdS").textContent = "0";
+      return;
+    }
+    el.textContent = e.title;
+    document.getElementById("evSub").textContent = e.sub;
+    document.getElementById("evTz").textContent = e.tz;
+
+    var target = Date.parse(e.t);
+    var diff = Math.max(0, target - Date.now());
+    var d = Math.floor(diff/86400000);
+    var h = Math.floor(diff%86400000/3600000);
+    var m = Math.floor(diff%3600000/60000);
+    var s = Math.floor(diff%60000/1000);
+    document.getElementById("cdD").textContent = String(d);
+    document.getElementById("cdH").textContent = pad(h);
+    document.getElementById("cdM").textContent = pad(m);
+    document.getElementById("cdS").textContent = pad(s);
+
+    var nav = document.getElementById("evNav");
+    nav.href = "https://www.google.com/maps/dir/?api=1&destination=" + e.nav + "&travelmode=transit";
+  }
+
+  render();
+  setInterval(render, 1000);
+</script>
+</body>
+</html>
